@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_one_attached :avatar
   has_many :recipes
 
   validates :name, :username, :email, presence: { strict: true }
