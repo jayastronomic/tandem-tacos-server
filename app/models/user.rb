@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_one_attached :avatar
-  has_many :recipes
+  has_many :recipes, dependent: :destroy
 
   validates :name, :username, :email, presence: { strict: true }
   validates :username, :email, uniqueness: { strict: true }

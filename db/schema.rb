@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_23_195437) do
   create_table "recipes", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
-    t.uuid "user_id", null: false
+    t.bigint "user_id"
     t.string "tags", array: true
     t.string "ingredients", array: true
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
