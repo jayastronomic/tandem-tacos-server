@@ -3,10 +3,11 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :find_user, only: %w(create)
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    user = User.new(user_params)
+    if user.save
+      @user = User.find(user.id)
       login!
-      render json: @user
+      render json: @user, logged_in: logged_in?
     else 
       render json: { status: 500, errors: @user.errors.full_messages }
     end 
@@ -29,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
   private 
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find_by(uuid: params[:id])
   end
 
   def user_params

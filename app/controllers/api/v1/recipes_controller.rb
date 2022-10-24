@@ -3,11 +3,12 @@ class Api::V1::RecipesController < ApplicationController
   skip_before_action :find_recipe, only: %w(create)
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    if @recipe.save
+    recipe = Recipe.new(recipe_params)
+    if recipe.save
+      @recipe = Recipe.find(recipe.id)
       render json: @recipe
     else 
-      render json: { status: 500, errors: @recipe.errors.full_messages }
+      render json: { status: 500, errors: recipe.errors.full_messages }
     end
   end
 
@@ -28,15 +29,15 @@ class Api::V1::RecipesController < ApplicationController
   private
 
   def find_recipe
-    @recipe = Recipe.find(recipe_params[:id])
+    @recipe = Recipe.find_by(uuid: params[:id])
   end
 
   def recipe_params
     params.require(:recipe).permit(
       :name,
       :description,
-      tags: [],
-      ingredients: [],
+      [tags: []],
+      [ingredients: []],
       :image
     )
   end
