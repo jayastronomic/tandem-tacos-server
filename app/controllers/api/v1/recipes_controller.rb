@@ -6,30 +6,33 @@ class Api::V1::RecipesController < ApplicationController
     recipe = Recipe.new(recipe_params)
     if recipe.save
       @recipe = Recipe.find(recipe.id)
-      render json: @recipe
+      render json: @recipe, status: :created
     else 
-      render json: { status: 500, errors: recipe.errors.full_messages }
+      render json: { errors: recipe.errors.full_messages }, status: :unprocessable_entity
     end
-  end
-
-  def show
-    render json: @recipe
   end
 
   def destroy
     @recipe.destroy
-    render json: @recipe 
+    render json: @recipe, status: 200
   end
 
   def update 
-    @recipe.update(recipe_params)
-    render json: @recipe
+    if @recipe.update(recipe_params)
+      render json: @recipe, status: 200
+    else
+      render json: { errors: @recipe.errors.full_messages }, status: 422
+    end
+  end
+
+  def show
+    render json: @recipe, status: 200
   end
 
   private
 
   def find_recipe
-    @recipe = Recipe.find_by(uuid: params[:id])
+    @recipe = Recipe.find_by(uuid: params[:uuid])
   end
 
   def recipe_params
