@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
       login!
       render json: @user, logged_in: logged_in?, status: :created
     else 
-      render json: { errors: @user.errors.full_messages, invalid_data: @user.invalid? }, status: :unprocessable_entity
+      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end 
   end
 

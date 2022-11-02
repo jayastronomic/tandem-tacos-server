@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'httparty'
+
+Recipe.destroy_all
+
+response = HTTParty.get("https://guac-is-extra.herokuapp.com")
+recipes = response.parsed_response
+
+
+
+recipes.each do |recipe|
+  r = ["halal", "kosher", "vegan", "vegetarian", "nut-free", "dairy-free", "gluten-free"]
+  Recipe.create(name: recipe["name"], directions: recipe["directions"], restrictions: [ r.sample, r.sample, r.sample ].uniq ) do |instance|
+    instance.ingredients.build(recipe["ingredients"])
+  end
+end
+
+

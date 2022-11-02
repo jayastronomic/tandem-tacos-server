@@ -76,3 +76,6 @@ group :test do
   gem "webdrivers"
   gem 'factory_bot_rails'
 end
+
+
+gem "meilisearch-rails", "~> 0.7.3"
