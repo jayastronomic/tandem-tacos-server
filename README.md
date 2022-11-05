@@ -6,17 +6,25 @@ This project is the server side of Tandem Taco.
 
 Cors is already set up for the backend to communicate to the client through HTTP request.
 
-## Installing Meilisearch
+#### Installing Meilisearch
 
 To help with creating a seamless search experience, I used a search engine called Meilisearch. To use this project, you have to install it on your local machine using homebrew on Mac:
 
-### Update brew and install Meilisearch
+#### Update brew and install Meilisearch
+
+In your terminal, run the command:
 
 `brew update && brew install meilisearch`
 
 ### Launch Meilisearch
 
+To get Meilisearch up and running, run the command:
+
 `meilisearch`
+
+After running the command, you should see Meilisearch start up in the terminal window:
+
+<img src="./app/assets/images/meilisearch.png"  class="width: 10rem;">
 
 Ruby version:
 
