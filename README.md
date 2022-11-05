@@ -16,15 +16,13 @@ In your terminal, run the command:
 
 `brew update && brew install meilisearch`
 
-### Launch Meilisearch
-
-To get Meilisearch up and running, run the command:
+After it is installed, get the Meilisearch server up and running by typing this command in your termal:
 
 `meilisearch`
 
-After running the command, you should see Meilisearch start up in the terminal window:
+After running the command, you should see Meilisearch start up in the terminal window
 
-<img src="./app/assets/images/meilisearch.png"  class="width: 10rem;">
+<img src="./app/assets/images/meilisearch.png"  class="width: 5rem;">
 
 Ruby version:
 
