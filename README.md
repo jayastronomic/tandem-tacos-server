@@ -24,11 +24,11 @@ To install the packages for this project, run the command:
 bundle install
 ```
 
-#### Postgresql
+## Postgresql
 
-This project uses the database service Posgresql. Here is a link to a guide that will help you install Postgresql on your Mac: https://wiki.postgresql.org/wiki/Homebrew
+This project uses the database service Postgresql. Here is a link to a guide that will help you install Postgresql on your Mac: https://wiki.postgresql.org/wiki/Homebrew
 
-After installing pstgres, make sure to edit the `database.yaml` file in the configuration folder to match the username and password of your Postgres user that you create after setting up Postgresql.
+After installing postgres, make sure to edit the `database.yaml` file in the configuration folder to match the username and password of your Postgres user that you create after setting up Postgresql.
 
 ## Installing Meilisearch
 
