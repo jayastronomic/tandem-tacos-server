@@ -9,12 +9,14 @@ Rails.application.routes.draw do
       get '/users/:uuid', to: 'users#show'
       patch '/users/:uuid', to: 'users#update'
       delete '/users/:uuid', to: 'users#destroy'
+     
 
       post '/recipes', to: 'recipes#create'
       get '/recipes/:uuid', to: 'recipes#show'
       patch '/recipes/:uuid', to: 'recipes#update'
       delete '/recipes/:uuid', to: 'recipes#destroy'
-      get '/recipes', to: 'recipes#index'
+      get '/recipes', to: 'recipes#index' 
+      get '/users/:uuid/recipes', to: 'recipes#user_recipes'
     end
   end
 end

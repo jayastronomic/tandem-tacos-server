@@ -6,7 +6,7 @@ RSpec.describe 'Recipes API:', type: :request do
       { recipe:
         { 
           name: Faker::Food.dish, 
-          description: Faker::Food.description,
+          directions: [Faker::Food.description, Faker::Food.description],
           user_id: 4 
         }
       }
@@ -15,7 +15,7 @@ RSpec.describe 'Recipes API:', type: :request do
       { recipe: 
         { 
           name: Faker::Food.dish, 
-          description: '',
+          directions: '',
           user_id: 4
         }
       }
@@ -113,10 +113,6 @@ RSpec.describe 'Recipes API:', type: :request do
       it "it doesn't update recipe" do
         expect(recipe.name).to_not eq(invalid_recipe_params[:recipe][:name])
       end 
-
-      # it 'returns status code 422' do
-      #   expect(response).to have_http_status(422)
-      # end
     end
   end
 
