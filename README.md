@@ -22,7 +22,7 @@ After it is installed, get the Meilisearch server up and running by typing this 
 
 After running the command, you should see Meilisearch start up in the terminal window
 
-<img src="./app/assets/images/meilisearch.png"  class="width: 5rem;">
+<img src="./app/assets/images/meilisearch.png"  style="width: 5rem;">
 
 Ruby version:
 
